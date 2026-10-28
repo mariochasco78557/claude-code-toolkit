@@ -1,0 +1,58 @@
+{
+  "_doc": "Colloquial ES/EN -> ROUTER keyword, loaded by hooks/ai-kb-recall.py from $FLOWARA_AI_OS_ROOT/ops/router_synonyms.json (inline fallback if missing). Keys are accent-free and stemmed at match time, so list one form per word. extra_keywords = more ROUTER keywords per line (same syntax, full weight). A synonym hit scores 0.75x the keyword it names. Targets in money_targets fire only if the prompt also has a money word. Never map generic verbs (edit, make) to a topic.",
+  "money_targets": [
+    "pricing"
+  ],
+  "money_prefixes": [
+    "euro",
+    "eur",
+    "price",
+    "pricing",
+    "cost",
+    "usd",
+    "dollar",
+    "precio",
+    "coste",
+    "cuesta"
+  ],
+  "words": {
+    "bot": "agent",
+    "chatbot": "agent",
+    "assistant": "agent",
+    "asistente": "agent",
+    "remember": "memory",
+    "recordar": "memory",
+    "recuerda": "memory",
+    "olvida": "memory",
+    "connect": "mcp",
+    "conectar": "mcp",
+    "integrar": "mcp",
+    "sheets": "mcp",
+    "notion": "mcp",
+    "enganchar": "hook",
+    "engancharlo": "hook",
+    "testear": "eval",
+    "probarlo": "eval",
+    "fallar": "failure",
+    "errores": "failure"
+  },
+  "phrases": {
+    "inicio de sesion": "sessionstart",
+    "at session start": "sessionstart",
+    "al arrancar": "sessionstart",
+    "responde bien": "eval",
+    "funciona bien": "eval",
+    "entre conversaciones": "memory",
+    "mucho texto": "tokens"
+  },
+  "extra_keywords": {
+    "R01": "frontmatter,trigger",
+    "R02": "cache_control,cache hit",
+    "R03": "integration",
+    "R04": "several agents",
+    "R05": "evaluation,silent failure",
+    "R06": "frontmatter",
+    "R07": "persistent",
+    "R08": "authorize"
+  }
+}
