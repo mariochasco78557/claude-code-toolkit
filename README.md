@@ -39,7 +39,7 @@ companion repo) and injects up to two hits. Short prompts, slash commands and no
 get nothing. Every real prompt appends one line to `~/.cache/ai-kb-recall/decisions.jsonl`
 (local only, mode 0600) so you can review routing decisions.
 
-Try it without Claude Code:
+Try it without Claude Code (or point `ROUTER_PATH` / `--router` at any router file):
 
 ```
 FLOWARA_AI_OS_ROOT=/path/to/vault python3 hooks/ai-kb-recall.py --dry-run "How do I add a SessionStart hook?"
@@ -51,6 +51,13 @@ Environment variables (names kept for compatibility):
 - `AI_KB_ROOT`: checkout of the knowledge feeds (default `$HOME/ai-knowledge-feeds`).
 
 Without either, the hooks print nothing and exit 0.
+
+## Evals: how we know the router helps
+
+`evals/router/` is a runnable harness that scores the router hook on a labelled golden set, a holdout
+and a set of must-not-inject prompts (hit@1, hit@2, injected characters, latency, false injections),
+reports a naive baseline, and gates CI on thresholds. Run `python3 evals/router/run_eval.py`; method
+and current numbers are in [`evals/router/README.md`](evals/router/README.md).
 
 ## The four-tier subagent team
 

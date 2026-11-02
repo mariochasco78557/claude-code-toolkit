@@ -1,0 +1,12 @@
+{"id": "n01", "prompt": "hi"}
+{"id": "n02", "prompt": "Hola, buenos días!"}
+{"id": "n03", "prompt": "thanks, that worked"}
+{"id": "n04", "prompt": "ok perfecto, gracias"}
+{"id": "n05", "prompt": "What's the weather like in Madrid today?"}
+{"id": "n06", "prompt": "Tell me a joke about cats"}
+{"id": "n07", "prompt": "/clear"}
+{"id": "n08", "prompt": "<task-notification>build finished</task-notification>"}
+{"id": "n09", "prompt": "def add(a, b):\n    return a + b\n\nfor i in range(10):\n    print(add(i, 2))\n"}
+{"id": "n10", "prompt": "SELECT id, name FROM users WHERE created_at > '2024-01-01' ORDER BY name;"}
+{"id": "n11", "prompt": "Qué tal el fin de semana? Yo me fui a la playa con la familia"}
+{"id": "n12", "prompt": "Recommend a good pasta recipe for tonight, something quick"}

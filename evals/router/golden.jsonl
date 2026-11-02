@@ -1,0 +1,42 @@
+{"id": "g01", "prompt": "How do I add a SessionStart hook that prints the git branch?", "expect": ["R01"]}
+{"id": "g02", "prompt": "My UserPromptSubmit hook is slow, how do I make it fail open?", "expect": ["R01"]}
+{"id": "g03", "prompt": "Quiero un hook de PreToolUse que bloquee comandos rm -rf", "expect": ["R01"]}
+{"id": "g04", "prompt": "Does a Stop hook receive the transcript path in its input?", "expect": ["R01"]}
+{"id": "g05", "prompt": "How can I get a prompt cache hit on my long system prompt?", "expect": ["R02"]}
+{"id": "g06", "prompt": "Where do I set cache_control so the tool definitions are cached?", "expect": ["R02"]}
+{"id": "g07", "prompt": "Por qué mi caching no funciona, el ttl parece caducar enseguida", "expect": ["R02"]}
+{"id": "g08", "prompt": "I want to connect an MCP server for my issue tracker", "expect": ["R03"]}
+{"id": "g09", "prompt": "Cómo configuro un mcp server local con stdio en Claude Code?", "expect": ["R03"]}
+{"id": "g10", "prompt": "How do I write my own tool server and expose it as a connector?", "expect": ["R03"]}
+{"id": "g11", "prompt": "Can a subagent call another subagent, or only the main session?", "expect": ["R04"]}
+{"id": "g12", "prompt": "I need to run parallel agents on different parts of the repo", "expect": ["R04"]}
+{"id": "g13", "prompt": "Cómo delego tareas a un subagente de solo lectura?", "expect": ["R04"]}
+{"id": "g14", "prompt": "How do I build a golden set to catch regressions in my agent?", "expect": ["R05"]}
+{"id": "g15", "prompt": "Necesito casos de test y un grader para evaluar mis respuestas", "expect": ["R05"]}
+{"id": "g16", "prompt": "What is a good number of eval cases before I trust the results?", "expect": ["R05"]}
+{"id": "g17", "prompt": "Where does the SKILL.md frontmatter go and what fields are required?", "expect": ["R06"]}
+{"id": "g18", "prompt": "Cómo creo un slash command personalizado para revisar PRs?", "expect": ["R06"]}
+{"id": "g19", "prompt": "Should my project instructions live in CLAUDE.md or in a rules file?", "expect": ["R07"]}
+{"id": "g20", "prompt": "Cómo hago que Claude recuerde las convenciones del proyecto entre conversaciones?", "expect": ["R07"]}
+{"id": "g21", "prompt": "How do I put a deny rule for .env files in settings.json?", "expect": ["R08"]}
+{"id": "g22", "prompt": "What does the sandbox allow by default, and how do I extend the allowlist?", "expect": ["R08"]}
+{"id": "g23", "prompt": "Cómo configuro permisos para que no pida confirmación con git status?", "expect": ["R08"]}
+{"id": "g24", "prompt": "How do I force the model to return JSON that matches a schema?", "expect": ["R09"]}
+{"id": "g25", "prompt": "Uso tool_choice para obligar a llamar a una función, es correcto?", "expect": ["R09"]}
+{"id": "g26", "prompt": "Which model should I pick for a cheap classification step?", "expect": ["R10"]}
+{"id": "g27", "prompt": "I keep hitting the rate limit on Opus, what are my options?", "expect": ["R10"]}
+{"id": "g28", "prompt": "Cuánto cuesta en tokens una sesión larga con Sonnet?", "expect": ["R10"]}
+{"id": "g29", "prompt": "How do I start a custom agent with the Agent SDK in Python?", "expect": ["R11"]}
+{"id": "g30", "prompt": "Quiero montar el agent loop con el sdk y mis propias herramientas", "expect": ["R11"]}
+{"id": "g31", "prompt": "My conversation is too long, when should I /compact versus /clear?", "expect": ["R12"]}
+{"id": "g32", "prompt": "Cómo evito llegar al context limit en una sesión larga?", "expect": ["R12"]}
+{"id": "g33", "prompt": "How do I run claude -p in a GitHub Actions workflow?", "expect": ["R13"]}
+{"id": "g34", "prompt": "Quiero usar modo headless para revisar código en un ci pipeline", "expect": ["R13"]}
+{"id": "g35", "prompt": "How do I defend against prompt injection from fetched web pages?", "expect": ["R14"]}
+{"id": "g36", "prompt": "Cómo protejo al agente de untrusted input que intente exfiltration de secretos?", "expect": ["R14"]}
+{"id": "g37", "prompt": "What chunking size works best for retrieval over our docs?", "expect": ["R15"]}
+{"id": "g38", "prompt": "Necesito embeddings y un reranker para buscar en mi base de documentos", "expect": ["R15"]}
+{"id": "g39", "prompt": "How do I package my commands and agents as a plugin?", "expect": ["R16"]}
+{"id": "g40", "prompt": "Cómo publico un marketplace de plugins para mi equipo?", "expect": ["R16"]}
+{"id": "g41", "prompt": "I want a nightly run of my agent using a systemd timer", "expect": ["R17"]}
+{"id": "g42", "prompt": "Cómo programo un cron que lance la revisión cada mañana?", "expect": ["R17"]}

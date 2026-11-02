@@ -1,0 +1,22 @@
+name: evals
+on:
+  push:
+  pull_request:
+jobs:
+  router-eval:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Router eval (gate)
+        run: python3 evals/router/run_eval.py
+      - name: Router eval (json artifact)
+        if: always()
+        run: python3 evals/router/run_eval.py --json --no-gate > router-eval.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: router-eval
+          path: router-eval.json

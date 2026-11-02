@@ -1,0 +1,8 @@
+{
+  "hit_at_1_min": 0.75,
+  "hit_at_2_min": 0.90,
+  "avg_chars_max": 700,
+  "max_chars_max": 1200,
+  "negatives_injected_max": 0,
+  "p95_latency_ms_max": 2600
+}

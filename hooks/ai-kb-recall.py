@@ -13,7 +13,9 @@ A sole line with a single weak keyword is injected as tentative "[ROUTER~]".
 Every real (non --dry-run) prompt appends one JSON line to ~/.cache/ai-kb-recall/decisions.jsonl
 (local only, 0600, rotated at 2 MB to .1).
 
-Env: FLOWARA_AI_OS_ROOT (vault with ROUTER.md, default $HOME/vault),
+Env: ROUTER_PATH or CLI --router PATH (use that ROUTER file directly; synonyms are read from a
+     router_synonyms[.example].json next to it, or ROUTER_SYNONYMS),
+     FLOWARA_AI_OS_ROOT (vault with ROUTER.md, default $HOME/vault),
      AI_KB_ROOT (knowledge-feeds checkout, default $HOME/ai-knowledge-feeds).
 
 CLI: ai-kb-recall.py --dry-run "<prompt>" [--json]   (prints what would be injected; never logs)
@@ -49,17 +51,35 @@ def _uv() -> str:
     return ""
 
 
+def _router_override() -> str:
+    """--router PATH (CLI) or ROUTER_PATH (env): use this ROUTER file directly (eval / repo checkout)."""
+    if "--router" in sys.argv:
+        i = sys.argv.index("--router")
+        if len(sys.argv) > i + 1:
+            return os.path.abspath(sys.argv[i + 1])
+    p = os.environ.get("ROUTER_PATH", "")
+    return os.path.abspath(p) if p else ""
+
+
+ROUTER_OVERRIDE = _router_override()
 FLOWARA_DIR = _root("FLOWARA_AI_OS_ROOT", "vault")
+if ROUTER_OVERRIDE and not os.environ.get("FLOWARA_AI_OS_ROOT"):
+    FLOWARA_DIR = os.path.dirname(ROUTER_OVERRIDE)
 KB_DIR = _root("AI_KB_ROOT", "ai-knowledge-feeds")
 UV = _uv()
 KB_OK = bool(KB_DIR and UV)  # no KB CLI (e.g. Mac without the KB) -> router lines only
-ROUTER_MD = os.path.join(FLOWARA_DIR, "ROUTER.md") if FLOWARA_DIR else ""
+ROUTER_MD = ROUTER_OVERRIDE or (os.path.join(FLOWARA_DIR, "ROUTER.md") if FLOWARA_DIR else "")
 CACHE = pathlib.Path.home() / ".cache/ai-kb-recall/router.json"
 # Decision log (local only, never synced; ~/.cache is outside every rsync/rclone job). Env override for tests.
 LOG = pathlib.Path(os.environ.get("AI_KB_RECALL_LOG", "") or pathlib.Path.home() / ".cache/ai-kb-recall/decisions.jsonl")
 LOG_MAX = 2 * 1024 * 1024
 
 SYN_JSON = os.path.join(FLOWARA_DIR, "ops/router_synonyms.json") if FLOWARA_DIR else ""
+if ROUTER_OVERRIDE:  # synonyms next to the router file (router_synonyms[.example].json), or ROUTER_SYNONYMS
+    _d = os.path.dirname(ROUTER_OVERRIDE)
+    SYN_JSON = os.environ.get("ROUTER_SYNONYMS") or next(
+        (c for c in (os.path.join(_d, "router_synonyms.json"), os.path.join(_d, "router_synonyms.example.json"))
+         if os.path.exists(c)), SYN_JSON)
 
 # Inline fallback, used only if ops/router_synonyms.json is missing or unreadable (keep roughly in
 # sync; the JSON is the curated source). No generic verbs (pedir, editar) and money targets gated.
@@ -271,7 +291,7 @@ def load_routes() -> list[dict]:
         sj_key = f"{sj.st_mtime_ns}:{sj.st_size}"
     except OSError:
         sj_key = "-"
-    key = f"{VERSION}:{FLOWARA_DIR}:{st.st_mtime_ns}:{st.st_size}:{sj_key}"
+    key = f"{VERSION}:{ROUTER_MD}:{FLOWARA_DIR}:{st.st_mtime_ns}:{st.st_size}:{sj_key}"
     try:
         data = json.loads(CACHE.read_text(encoding="utf-8"))
         if data.get("key") == key:

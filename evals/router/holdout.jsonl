@@ -1,0 +1,17 @@
+{"id": "h01", "prompt": "Can a PostToolUse hook rewrite the tool output before the model sees it?", "expect": ["R01"]}
+{"id": "h02", "prompt": "How long does the cache ttl last and can I extend it?", "expect": ["R02"]}
+{"id": "h03", "prompt": "What is the difference between an MCP server and a plain CLI tool?", "expect": ["R03"]}
+{"id": "h04", "prompt": "How do I orchestrate several agents that each own a different file?", "expect": ["R04"]}
+{"id": "h05", "prompt": "Mi suite de eval pasa pero en producción hay regression, qué hago?", "expect": ["R05"]}
+{"id": "h06", "prompt": "Is there a way to bundle a skill with helper scripts?", "expect": ["R06"]}
+{"id": "h07", "prompt": "Where should I document my team's coding rules for Claude?", "expect": ["R07"]}
+{"id": "h08", "prompt": "Cómo limito qué comandos puede ejecutar con la allowlist?", "expect": ["R08"]}
+{"id": "h09", "prompt": "Show me a function calling example with several tools", "expect": ["R09"]}
+{"id": "h10", "prompt": "Is Haiku good enough for routing, or do I need Sonnet?", "expect": ["R10"]}
+{"id": "h11", "prompt": "Cómo uso el Agent SDK para lanzar un agente desde mi backend?", "expect": ["R11"]}
+{"id": "h12", "prompt": "The context window fills up after an hour, how do I manage it?", "expect": ["R12"]}
+{"id": "h13", "prompt": "Can I run Claude Code non-interactive from a script and capture JSON?", "expect": ["R13"]}
+{"id": "h14", "prompt": "A user pasted a document that tries a jailbreak, how do I stop it?", "expect": ["R14"]}
+{"id": "h15", "prompt": "How do I choose an embedding model for semantic search?", "expect": ["R15"]}
+{"id": "h16", "prompt": "Cómo distribuyo mis comandos como plugin con plugin.json?", "expect": ["R16"]}
+{"id": "h17", "prompt": "Run the report every Monday at 7am with a scheduled task", "expect": ["R17"]}
